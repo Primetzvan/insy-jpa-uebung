@@ -1,0 +1,149 @@
+GET http://localhost:8080/api/kunde/getAll
+
+###
+
+POST http://localhost:8080/api/kunde/addKunde
+Content-Type: application/json
+
+{
+  "firstname": "Kate",
+  "lastname": "Winslet",
+  "age": "45"
+}
+
+###
+
+POST http://localhost:8080/api/tisch/addTisch
+Content-Type: application/json
+
+{
+  "plaetze": 4
+}
+
+###
+
+GET http://localhost:8080/api/tisch/getAll
+
+###
+
+
+POST http://localhost:8080/api/mitarbeiter/addMitarbeiter
+Content-Type: application/json
+
+{
+  "firstname": "Hanna",
+  "lastname": "Baker",
+  "maType": "KOCH",
+  "age": 23
+}
+
+
+###
+
+
+GET http://localhost:8080/api/mitarbeiter/getAll
+
+
+###
+
+
+GET http://localhost:8080/api/mitarbeiter/groupByType
+
+
+###
+
+
+POST http://localhost:8080/api/bestellung/addBestellung
+Content-Type: application/json
+
+{
+  "mitarbeiter": {
+    "id": 1,
+    "firstname": "Hanna",
+    "lastname": "Baker",
+    "maType": "KOCH",
+    "age": 22
+  },
+  "tisch": {
+    "id": 1,
+    "plaetze": 4
+  }
+}
+
+
+###
+
+
+POST http://localhost:8080/api/getraenke/add
+Content-Type: application/json
+
+{
+  "name": "Cola",
+  "preis": 2.5,
+  "menge": 0.5,
+  "eiswürfel": true
+}
+
+###
+
+GET http://localhost:8080/api/getraenke/getAll
+
+###
+
+
+POST http://localhost:8080/api/speisse/add
+Content-Type: application/json
+
+{
+  "name": "Schnitzel",
+  "preis": 12.5,
+  "gewicht": 0.5,
+  "salat": true
+}
+
+###
+
+GET http://localhost:8080/api/speisse/getAll
+
+###
+
+
+GET http://localhost:8080/api/bestellung/getAll
+
+
+###
+
+GET http://localhost:8080/api/bestellung/getJoin/1
+
+###
+
+###will ned
+
+POST http://localhost:8080/api/bestellung/createBestellliste
+Content-Type: application/json
+
+{
+  "bestelliste": {
+    "mitarbeiter": {
+      "id": 1,
+      "firstname": "Hanna",
+      "lastname": "Baker",
+      "maType": "KOCH",
+      "age": 18
+    },
+    "getraenk": {
+      "id": 1,
+      "name": "Cola",
+      "preis": 2.5,
+      "menge": 0.5,
+      "eiswürfel": true
+    }
+  },
+  "bid": 1
+}
+
+###
+
+
+
+
