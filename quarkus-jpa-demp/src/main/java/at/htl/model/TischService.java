@@ -33,6 +33,14 @@ public class TischService {
     return tisch;
   }
 
+  @POST
+  @Path("updateTisch")
+  @Transactional
+  public Tisch updateTisch(Tisch tisch){
+    tischRepo.updateTisch(tisch);
+    return tisch;
+  }
+
   @GET
   @Path("getAll")
   @Produces({MediaType.APPLICATION_JSON})

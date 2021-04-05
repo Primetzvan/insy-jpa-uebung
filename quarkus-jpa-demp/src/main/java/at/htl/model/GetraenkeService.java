@@ -34,6 +34,23 @@ public class GetraenkeService {
     return  this.getraenkRepo.add(name,preis,menge,eiswuerfel);
   }
 
+  @POST
+  @Path("addGetraenk")
+  @Transactional
+  public void addGetraenk(Getraenk getraenk){
+    this.getraenkRepo.addGetraenke(getraenk);
+  }
+
+  @POST
+  @Path("updateGetraenk")
+  @Transactional
+  public Getraenk updateGetraenk(String name, Long preis, Long menge, Boolean eiswuerfel){
+    if(name == null){
+      throw new IllegalArgumentException();
+    }
+    return  this.getraenkRepo.add(name,preis,menge,eiswuerfel);
+  }
+
   @GET
   @Path("getAll")
   @Produces({MediaType.APPLICATION_JSON})

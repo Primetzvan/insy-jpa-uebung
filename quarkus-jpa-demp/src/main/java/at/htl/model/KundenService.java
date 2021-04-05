@@ -30,7 +30,14 @@ public class KundenService {
   public Kunde addKunde(Kunde kunde){
     kundeRepo.addKunde(kunde);
     return kunde;
-    //return (result ? Response.ok() : Response.status(Response.Status.BAD_REQUEST)).build();
+  }
+
+  @POST
+  @Path("updateKunde")
+  @Transactional
+  public Kunde updateKunde(Kunde kunde){
+    kundeRepo.updateKunde(kunde);
+    return kunde;
   }
 
   @GET

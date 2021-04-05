@@ -33,6 +33,15 @@ public class BestellungService {
   }
 
   @POST
+  @Path("updateBestellung")
+  @Transactional
+  public Bestellung updateBestellung(Bestellung bestellung){
+    bestellungRepo.updateBestellung(bestellung);
+    return bestellung;
+    //return (result ? Response.ok() : Response.status(Response.Status.BAD_REQUEST)).build();
+  }
+
+  @POST
   @Path("createBestellliste")
   @Transactional
   public Bestellliste createBestelliste(BestellungBestellliste bestellliste){

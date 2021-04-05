@@ -11,6 +11,18 @@ Content-Type: application/json
   "age": "45"
 }
 
+
+###
+
+POST http://localhost:8080/api/kunde/updateKunde
+Content-Type: application/json
+
+{
+  "firstname": "Kate",
+  "lastname": "Winslet",
+  "age": "46"
+}
+
 ###
 
 POST http://localhost:8080/api/tisch/addTisch
@@ -23,6 +35,15 @@ Content-Type: application/json
 ###
 
 GET http://localhost:8080/api/tisch/getAll
+
+###
+
+POST http://localhost:8080/api/tisch/updateTisch
+Content-Type: application/json
+
+{
+  "plaetze": 5
+}
 
 ###
 
@@ -43,6 +64,18 @@ Content-Type: application/json
 
 GET http://localhost:8080/api/mitarbeiter/getAll
 
+
+###
+
+POST http://localhost:8080/api/mitarbeiter/updateMitarbeiter
+Content-Type: application/json
+
+{
+  "firstname": "Hanna",
+  "lastname": "Baker",
+  "maType": "KOCH",
+  "age": 24
+}
 
 ###
 
@@ -86,6 +119,18 @@ Content-Type: application/json
 
 ###
 
+POST http://localhost:8080/api/getraenke/updateGetraenk
+Content-Type: application/json
+
+{
+  "name": "Cola",
+  "preis": 2.5,
+  "menge": 0.5,
+  "eiswürfel": false
+}
+
+###
+
 GET http://localhost:8080/api/getraenke/getAll
 
 ###
@@ -105,8 +150,8 @@ Content-Type: application/json
 
 GET http://localhost:8080/api/speisse/getAll
 
-###
 
+###
 
 GET http://localhost:8080/api/bestellung/getAll
 

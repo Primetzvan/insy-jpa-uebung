@@ -34,6 +34,13 @@ public class SpeisseService {
       return  this.speisseRepo.add(name,preis,gewicht,salat);
     }
 
+  @POST
+  @Path("updateSpeisse")
+  @Transactional
+  public void updateSpeisse(Speisse speisse){
+    this.speisseRepo.updateSpeisse(speisse);
+  }
+
     @POST
     @Path("addSpeisse")
     @Transactional

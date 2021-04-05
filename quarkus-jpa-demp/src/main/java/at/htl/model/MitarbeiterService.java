@@ -31,6 +31,15 @@ public class MitarbeiterService {
     //return (result ? Response.ok() : Response.status(Response.Status.BAD_REQUEST)).build();
   }
 
+  @POST
+  @Path("updateMitarbeiter")
+  @Transactional
+  public Mitarbeiter updateMitarbeiter(Mitarbeiter mitarbeiter){
+    mitarbeiterRepo.updateMitarbeiter(mitarbeiter);
+    return mitarbeiter;
+    //return (result ? Response.ok() : Response.status(Response.Status.BAD_REQUEST)).build();
+  }
+
   @GET
   @Path("getAll")
   @Produces({MediaType.APPLICATION_JSON})
