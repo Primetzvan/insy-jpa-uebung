@@ -37,6 +37,26 @@ public class TestGetraenkeRepo {
   }
 
   @Test
+  public void updateGetraenk(){
+    var getraenk = new Getraenk();
+    getraenk.setName("Eistee");
+    getraenk.setPreis(9L);
+    getraenk.setMenge(1L);
+    getraenk.setEiswuerfel(true);
+
+    assertThatCode(()->getraenkRepo.addGetraenke(getraenk)).doesNotThrowAnyException();
+
+    getraenk.setEiswuerfel(false);
+
+    getraenkRepo.updateGetraenke(getraenk);
+
+    var loadedGetraenk = getraenkRepo.getGetraenkeById(getraenk.getId());
+
+    assertThat(loadedGetraenk.getEiswuerfel()).isNotNull().isEqualTo(false);
+
+  }
+
+  @Test
   public void getGetraenk_notExists(){
     var id = 3;
 

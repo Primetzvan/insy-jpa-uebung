@@ -28,6 +28,10 @@ public class GetraenkRepo {
     entityManager.persist(getraenk);
   }
 
+  public void updateGetraenke(Getraenk getraenk) {
+    entityManager.merge(getraenk);
+  }
+
   public Getraenk add(String name, Long preis, Long menge, Boolean eiswuerfel) {
     Getraenk getraenk = new Getraenk();
     getraenk.setName(name);

@@ -34,6 +34,26 @@ public class TestSpeisseRepo {
   }
 
   @Test
+  public void updateSpeisse(){
+    var speisse = new Speisse();
+    speisse.setName("Berner");
+    speisse.setPreis(9L);
+    speisse.setGewicht(1L);
+    speisse.setSalat(false);
+
+    speisseRepo.addSpeisse(speisse);
+
+    speisse.setSalat(true);
+
+    speisseRepo.updateSpeisse(speisse);
+
+    var loadedSpeisse = speisseRepo.getSpeisseById(speisse.getId());
+
+    assertThat(loadedSpeisse.getSalat()).isNotNull().isEqualTo(true);
+
+  }
+
+  @Test
   public void getSpeisse_notExists(){
     var id = 3;
 

@@ -27,6 +27,10 @@ public class TischRepo {
     entityManager.persist(tisch);
   }
 
+  public void updateTisch(Tisch tisch) {
+    entityManager.merge(tisch);
+  }
+
   public List<Tisch> getAllTIsch() {
     var query = entityManager.createQuery("Select t from Tisch t",Tisch.class);
     return query.getResultList();

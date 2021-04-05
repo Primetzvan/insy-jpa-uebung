@@ -29,6 +29,10 @@ public class SpeisseRepo {
     entityManager.persist(speisse);
   }
 
+  public void updateSpeisse(Speisse speisse) {
+    entityManager.merge(speisse);
+  }
+
   public Speisse add(String name, Long preis, Long gewicht, Boolean salat) {
     Speisse speisse = new Speisse();
     speisse.setName(name);

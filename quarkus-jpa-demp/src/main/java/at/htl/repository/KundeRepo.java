@@ -27,6 +27,10 @@ public class KundeRepo {
     entityManager.persist(kunde);
   }
 
+  public void updateKunde(Kunde kunde){
+    entityManager.merge(kunde);
+  }
+
   public Kunde add(String firstname, String lastname,int age){
     Kunde kunde = new Kunde();
     kunde.setFirstname(firstname);

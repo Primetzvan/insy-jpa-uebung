@@ -35,6 +35,26 @@ public class TestMitarbeiterRepo {
 
   }
 
+
+  @Test
+  public void updateMitarbeiter(){
+    var mitarbeiter = new Mitarbeiter();
+    mitarbeiter.setFirstname("Werner");
+    mitarbeiter.setLastname("Werner");
+    mitarbeiter.setType(MAType.Kellner);
+
+    mitarbeiterRepo.addMitarbeiter(mitarbeiter);
+
+    mitarbeiter.setType(MAType.Koch);
+
+    mitarbeiterRepo.updateMitarbeiter(mitarbeiter);
+
+    var loadedMitarbeiter = mitarbeiterRepo.getMitarbeiterById(mitarbeiter.getId());
+
+    assertThat(loadedMitarbeiter.getType()).isNotNull().isEqualTo(MAType.Koch);
+
+  }
+
   @Test
   public void getSpeisse_notExists(){
     var id = 3;

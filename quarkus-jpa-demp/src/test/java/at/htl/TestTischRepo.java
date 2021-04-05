@@ -33,6 +33,23 @@ public class TestTischRepo {
   }
 
   @Test
+  public void updateTisch(){
+    var tisch = new Tisch();
+    tisch.setPlaetze(4);
+
+    tischRepo.addTisch(tisch);
+
+    tisch.setPlaetze(2);
+
+    tischRepo.updateTisch(tisch);
+
+    var loadedTisch = tischRepo.getTischById(tisch.getId());
+
+    assertThat(loadedTisch.getPlaetze()).isNotNull().isEqualTo(2);
+
+  }
+
+  @Test
   public void getTisch_notExists(){
     var id = 3;
 

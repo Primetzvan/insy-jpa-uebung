@@ -35,6 +35,25 @@ public class TestKundeRepo {
   }
 
   @Test
+  public void updateKunde(){
+    var kunde = new Kunde();
+    kunde.setFirstname("Hans");
+    kunde.setLastname("Müller");
+    kunde.setAge(60);
+
+    kundeRepo.addKunde(kunde);
+
+    kunde.setAge(61);
+
+    kundeRepo.updateKunde(kunde);
+
+    var loadedKunde = kundeRepo.getKundeById(kunde.getId());
+
+    assertThat(loadedKunde.getAge()).isNotNull().isEqualTo(61);
+
+  }
+
+  @Test
   public void getKunde_notExists(){
     var id = 3;
 

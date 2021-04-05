@@ -59,7 +59,35 @@ public class TestBestellungRepo {
     assertThat(loadedBestellung.get()).isNull();
   }
 
-  //TODO:
+  @Test
+  public void updateBestellung(){
+    var mitarbeiter = new Mitarbeiter("leo", "neu", MAType.Kellner,22);
+    mitarbeiterRepo.addMitarbeiter(mitarbeiter);
+    var tisch = new Tisch(4);
+    tischRepo.addTisch(tisch);
+
+    var bestellung = new Bestellung();
+    bestellung.setMitarbeiter(mitarbeiter);
+    bestellung.setTisch(tisch);
+
+    bestellungRepo.addBestellung(bestellung);
+
+    var loadedBestellung = bestellungRepo.getBestellungById(bestellung.getId());
+
+    //tischupadte
+    tisch.setPlaetze(2);
+    tischRepo.updateTisch(tisch);
+
+    loadedBestellung.setTisch(tisch);
+
+    bestellungRepo.updateBestellung(loadedBestellung);
+
+    assertThat(loadedBestellung.getTisch().getPlaetze()).isNotNull().isEqualTo(2);
+
+  }
+
+
+
   @Test
   public void testJoin(){
 

@@ -27,6 +27,10 @@ public class MitarbeiterRepo {
     entityManager.persist(mitarbeiter);
   }
 
+  public void updateMitarbeiter(Mitarbeiter mitarbeiter) {
+    entityManager.merge(mitarbeiter);
+  }
+
   public List<Mitarbeiter> getAllMitarbeiter() {
     var query = entityManager.createQuery("Select m from Mitarbeiter m",Mitarbeiter.class);
     return query.getResultList();

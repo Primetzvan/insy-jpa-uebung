@@ -30,18 +30,20 @@ public class BestellungRepo {
     entityManager.persist(bestellung);
   }
 
+  public void updateBestellung(Bestellung bestellung) {
+    entityManager.merge(bestellung);
+  }
+
   public List<Bestellung> getAllBestellung() {
     var query = entityManager.createQuery("Select b from Bestellung b",Bestellung.class);
     return query.getResultList();
   }
 
-  //TODO: selber Fehler: could not prepare statement
   public void createBestelliste(Bestellliste liste, int id){
     System.out.println(getBestellungById(id));
       this.getBestellungById(id).addBestelllisten(liste.mitarbeiter, liste.artikel);
   }
 
-  //TODO:TestBestellungRepo wirft fehler aber nicht im Endpoint
   public List<BestellJoin> findAllBestellungenByBestellungslistID(Integer id){
     return entityManager.createQuery("select NEW at.htl.repository.BestellJoin(b.id, b.bestellung.id) from Bestellliste b join b.bestellung c where c.id = :id",BestellJoin.class).
       setParameter("id",id).getResultList();
